@@ -8,6 +8,13 @@
     <meta name="author" content="Ditt namn"> 
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!--Calender-->
+    <link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
+    <script src='lib/jquery.min.js'></script>
+    <script src='lib/moment.min.js'></script>
+    <script src='fullcalendar/fullcalendar.js'></script>
+
   </head> 
   <body> 
     <button id="plus">PLUS</button>
@@ -37,7 +44,9 @@
       </div>
     </div>
 
-    <div class="calender">
+    <div id='calendar'></div>
+
+    <div class="cal">
       <h2>Kalender</h2>
       <div id="monday">
         <h3>Monday</h3>
