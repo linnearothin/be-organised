@@ -1,0 +1,24 @@
+{
+  "name": "be-organised",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "dependencies": {
+    "http-server": "^0.10.0",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linnearothin/be-organised.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linnearothin/be-organised/issues"
+  },
+  "homepage": "https://github.com/linnearothin/be-organised#readme"
+}
