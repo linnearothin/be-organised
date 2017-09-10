@@ -13,6 +13,13 @@
     <script src='jquery/dist/jquery.min.js'></script>
     <script src='jquery/node_modules/moment/min/moment.min.js'></script>
     <script src='jquery/node_modules/fullcalendar/dist/fullcalendar.js'></script>
+    <!--Todo list -->
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style-todo.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   </head> 
   <body> 
@@ -20,77 +27,50 @@
     <button id="meny">MENY</button>
     <h1>Be orginasied</h1>
 
-    <div class="goals">
-      <h2>Goals</h2> 
-      <div id="daily-goals">
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-4">
         <h3>Daily goals</h3>
-        <ul>
+        <ol>
           <li>Go 7500 steps</li>
           <li>Paint a painting</li>
-        </ul>
+        </ol>
       </div>
-      <div id="week-goals">
+    <div class="col-sm-4">
         <h3>Weekly goals</h3>
-        <ul>
+        <ol>
           <li>Be kind</li>
-        </ul>
-      </div>
-      <div id="month-goals">
-        <h3>Monthly goals</h3>
-        <ul>
-          <li>Be kind</li>
-        </ul>
-      </div>
+        </ol>
     </div>
+    <div class="col-sm-4">
+        <h3>Monthly goals</h3>
+        <ol>
+          <li>Be kind</li>
+        </ol>
+    </div>
+   </div>
+  </div>
+
+<div id="myDIV" class="header">
+  <h2>My To Do List</h2>
+  <input type="text" id="myInput" placeholder="Title...">
+  <span onclick="newElement()" class="addBtn">Add</span>
+</div>
+
+<ul id="myUL">
+  <li>Hit the gym</li>
+  <li class="checked">Pay bills</li>
+  <li>Meet George</li>
+  <li>Buy eggs</li>
+  <li>Read a book</li>
+  <li>Organize office</li>
+</ul>
+
+
+
+
 
     <div id='calendar'></div>
-
-    <div class="cal">
-      <h2>Kalender</h2>
-      <div id="monday">
-        <h3>Monday</h3>
-        <ul>
-          <li>Go 7500 steps</li>
-          <li>Paint a painting</li>
-        </ul>
-      </div>
-      <div id="tuesday">
-        <h3>Tuesday</h3>
-        <ul>
-          <li>Be kind</li>
-        </ul>
-      </div>
-      <div id="wednesday">
-        <h3>Wednesday</h3>
-        <ul>
-          <li>Be kind</li>
-        </ul>
-      </div>
-      <div id="thursday">
-        <h3>Wednesday</h3>
-        <ul>
-          <li>Be kind</li>
-        </ul>
-      </div>
-      <div id="friday">
-        <h3>Wednesday</h3>
-        <ul>
-          <li>Be kind</li>
-        </ul>
-      </div>
-      <div id="wednesday">
-        <h3>Wednesday</h3>
-        <ul>
-          <li>Be kind</li>
-        </ul>
-      </div>
-      <div id="wednesday">
-        <h3>Wednesday</h3>
-        <ul>
-          <li>Be kind</li>
-        </ul>
-      </div>
-    </div>
 
   <script type="text/javascript">
         $(document).ready(function() {
@@ -110,6 +90,63 @@
           
       });
 
+    </script>
+    <script type="text/javascript">
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
     </script>
 
   </body>
