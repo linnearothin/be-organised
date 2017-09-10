@@ -6,7 +6,7 @@
     <title>Be orginasied</title>
 
     <meta name="author" content="Ditt namn"> 
-    <script src="script.js"></script>
+    
     <link rel="stylesheet" href="style.css">
     <!--Calender-->
     <link rel='stylesheet' href='jquery/node_modules/fullcalendar/dist/fullcalendar.css' />
@@ -92,6 +92,25 @@
       </div>
     </div>
 
+  <script type="text/javascript">
+        $(document).ready(function() {
+
+          // page is now ready, initialize the calendar...
+
+          $('#calendar').fullCalendar({
+              // put your options and callbacks here
+              dayClick: function() {
+              alert('a day has been clicked!');
+              }
+
+          });
+          $('#calendar').fullCalendar({
+           height: 650,
+          });
+          
+      });
+
+    </script>
 
   </body>
 

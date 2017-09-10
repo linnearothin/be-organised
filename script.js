@@ -1,4 +1,4 @@
-
+function start(){
 $(document).ready(function() {
 function readIn(){
 	$('#calender').fullCalendar({
@@ -19,3 +19,5 @@ $('#tcalender').fullCalendar({
 });
 
 });
+
+};
